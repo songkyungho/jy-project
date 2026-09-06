@@ -62,10 +62,7 @@ function createCard(character) {
       class="flip-hotspot"
       aria-pressed="false"
       aria-label="${character.name} 카드 뒤집기. 가운데를 누르면 상세 설정이 보입니다."
-    >
-      <span class="flip-hotspot__label flip-hotspot__label--front">가운데를 탭</span>
-      <span class="flip-hotspot__label flip-hotspot__label--back">앞면으로</span>
-    </button>
+    ></button>
   `;
 
   const name = document.createElement("h2");
