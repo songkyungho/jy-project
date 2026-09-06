@@ -39,6 +39,21 @@ const characters = [
     front: "assets/characters/lee-yurim-front.webp",
     back: "assets/characters/lee-yurim-back.webp",
   },
+  {
+    name: "장제윤",
+    front: "assets/characters/jang-jeyun-front.webp",
+    back: "assets/characters/jang-jeyun-back.webp",
+  },
+  {
+    name: "정의민",
+    front: "assets/characters/jeong-uimin-front.webp",
+    back: "assets/characters/jeong-uimin-back.webp",
+  },
+  {
+    name: "정현오",
+    front: "assets/characters/jeong-hyeono-front.webp",
+    back: "assets/characters/jeong-hyeono-back.webp",
+  },
 ];
 
 function createCard(character) {

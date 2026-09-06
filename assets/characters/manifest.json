@@ -54,5 +54,26 @@
     "slug": "lee-yurim",
     "front": "assets/characters/lee-yurim-front.webp",
     "back": "assets/characters/lee-yurim-back.webp"
+  },
+  {
+    "id": "009",
+    "name": "장제윤",
+    "slug": "jang-jeyun",
+    "front": "assets/characters/jang-jeyun-front.webp",
+    "back": "assets/characters/jang-jeyun-back.webp"
+  },
+  {
+    "id": "010",
+    "name": "정의민",
+    "slug": "jeong-uimin",
+    "front": "assets/characters/jeong-uimin-front.webp",
+    "back": "assets/characters/jeong-uimin-back.webp"
+  },
+  {
+    "id": "011",
+    "name": "정현오",
+    "slug": "jeong-hyeono",
+    "front": "assets/characters/jeong-hyeono-front.webp",
+    "back": "assets/characters/jeong-hyeono-back.webp"
   }
 ]
