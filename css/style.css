@@ -82,16 +82,8 @@ img {
   border: 0;
   padding: 0;
   background: transparent;
-  cursor: pointer;
   perspective: 1200px;
   -webkit-tap-highlight-color: transparent;
-  outline: none;
-}
-
-.card:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 4px;
-  border-radius: calc(var(--card-radius) + 2px);
 }
 
 .card-inner {
@@ -133,37 +125,77 @@ img {
   overflow-x: hidden;
   overscroll-behavior: contain;
   touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
   scrollbar-color: var(--accent-soft) transparent;
   background: #0d1018;
+  cursor: grab;
 }
 
 .card-face--back img {
   width: 100%;
   height: auto;
   vertical-align: top;
-}
-
-.card-hint {
-  position: absolute;
-  left: 0.65rem;
-  bottom: 0.65rem;
-  z-index: 2;
-  padding: 0.28rem 0.55rem;
-  border-radius: 999px;
-  font-size: 0.68rem;
-  letter-spacing: 0.04em;
-  color: var(--ink);
-  background: rgba(10, 12, 20, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(6px);
   pointer-events: none;
-  opacity: 0.92;
-  transition: opacity 0.25s ease;
 }
 
-.card.is-flipped .card-hint {
-  opacity: 0;
+/* 카드 가운데만 뒤집기 — 가장자리는 뒷면 스크롤용 */
+.flip-hotspot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 4;
+  width: min(42%, 7.5rem);
+  height: min(30%, 6.5rem);
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 12px;
+  background: rgba(8, 10, 18, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--ink);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.flip-hotspot:hover,
+.flip-hotspot:focus-visible {
+  background: rgba(12, 16, 28, 0.62);
+  border-color: rgba(126, 184, 255, 0.45);
+  outline: none;
+}
+
+.flip-hotspot:focus-visible {
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+.flip-hotspot__label {
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+  line-height: 1.35;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+}
+
+.flip-hotspot__label--back {
+  display: none;
+}
+
+.card.is-flipped .flip-hotspot__label--front {
+  display: none;
+}
+
+.card.is-flipped .flip-hotspot__label--back {
+  display: block;
+}
+
+.card.is-flipped .flip-hotspot {
+  background: rgba(8, 10, 18, 0.38);
 }
 
 .character-name {

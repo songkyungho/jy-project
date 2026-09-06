@@ -47,68 +47,47 @@ function createCard(character) {
 
   const card = document.createElement("div");
   card.className = "card";
-  card.tabIndex = 0;
-  card.setAttribute("role", "button");
-  card.setAttribute("aria-pressed", "false");
-  card.setAttribute(
-    "aria-label",
-    `${character.name} 카드. 누르면 상세 설정이 보입니다.`
-  );
 
   card.innerHTML = `
     <div class="card-inner">
       <div class="card-face card-face--front">
         <img src="${character.front}" alt="${character.name} 대표 이미지" loading="lazy" width="720" height="1080" />
-        <span class="card-hint" aria-hidden="true">탭해서 설정 보기</span>
       </div>
       <div class="card-face card-face--back">
         <img src="${character.back}" alt="${character.name} 상세 설정" loading="lazy" width="720" height="1800" />
       </div>
     </div>
+    <button
+      type="button"
+      class="flip-hotspot"
+      aria-pressed="false"
+      aria-label="${character.name} 카드 뒤집기. 가운데를 누르면 상세 설정이 보입니다."
+    >
+      <span class="flip-hotspot__label flip-hotspot__label--front">가운데를 탭</span>
+      <span class="flip-hotspot__label flip-hotspot__label--back">앞면으로</span>
+    </button>
   `;
 
   const name = document.createElement("h2");
   name.className = "character-name";
   name.textContent = character.name;
 
+  const hotspot = card.querySelector(".flip-hotspot");
+
   const setFlipped = (flipped) => {
     card.classList.toggle("is-flipped", flipped);
-    card.setAttribute("aria-pressed", String(flipped));
-    card.setAttribute(
+    hotspot.setAttribute("aria-pressed", String(flipped));
+    hotspot.setAttribute(
       "aria-label",
       flipped
-        ? `${character.name} 상세 설정. 다시 탭하면 대표 이미지로 돌아갑니다.`
-        : `${character.name} 카드. 누르면 상세 설정이 보입니다.`
+        ? `${character.name} 상세 설정. 가운데를 다시 누르면 대표 이미지로 돌아갑니다.`
+        : `${character.name} 카드 뒤집기. 가운데를 누르면 상세 설정이 보입니다.`
     );
   };
 
-  const toggle = () => setFlipped(!card.classList.contains("is-flipped"));
-
-  let pointerStartY = 0;
-  let didScrollGesture = false;
-
-  card.addEventListener("pointerdown", (event) => {
-    pointerStartY = event.clientY;
-    didScrollGesture = false;
-  });
-
-  card.addEventListener("pointermove", (event) => {
-    if (Math.abs(event.clientY - pointerStartY) > 10) {
-      didScrollGesture = true;
-    }
-  });
-
-  card.addEventListener("click", () => {
-    // 뒷면 스크롤 제스처와 탭을 구분
-    if (didScrollGesture) return;
-    toggle();
-  });
-
-  card.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      toggle();
-    }
+  hotspot.addEventListener("click", (event) => {
+    event.stopPropagation();
+    setFlipped(!card.classList.contains("is-flipped"));
   });
 
   item.append(card, name);
