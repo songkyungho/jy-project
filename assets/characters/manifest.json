@@ -1,0 +1,58 @@
+[
+  {
+    "id": "001",
+    "name": "송주환",
+    "slug": "song-juhwan",
+    "front": "assets/characters/song-juhwan-front.webp",
+    "back": "assets/characters/song-juhwan-back.webp"
+  },
+  {
+    "id": "002",
+    "name": "김근우",
+    "slug": "kim-geunu",
+    "front": "assets/characters/kim-geunu-front.webp",
+    "back": "assets/characters/kim-geunu-back.webp"
+  },
+  {
+    "id": "003",
+    "name": "김민준",
+    "slug": "kim-minjun",
+    "front": "assets/characters/kim-minjun-front.webp",
+    "back": "assets/characters/kim-minjun-back.webp"
+  },
+  {
+    "id": "004",
+    "name": "김청현",
+    "slug": "kim-cheonghyeon",
+    "front": "assets/characters/kim-cheonghyeon-front.webp",
+    "back": "assets/characters/kim-cheonghyeon-back.webp"
+  },
+  {
+    "id": "005",
+    "name": "김현율",
+    "slug": "kim-hyeonyul",
+    "front": "assets/characters/kim-hyeonyul-front.webp",
+    "back": "assets/characters/kim-hyeonyul-back.webp"
+  },
+  {
+    "id": "006",
+    "name": "송유환",
+    "slug": "song-yuhwan",
+    "front": "assets/characters/song-yuhwan-front.webp",
+    "back": "assets/characters/song-yuhwan-back.webp"
+  },
+  {
+    "id": "007",
+    "name": "양시완",
+    "slug": "yang-siwan",
+    "front": "assets/characters/yang-siwan-front.webp",
+    "back": "assets/characters/yang-siwan-back.webp"
+  },
+  {
+    "id": "008",
+    "name": "이유림",
+    "slug": "lee-yurim",
+    "front": "assets/characters/lee-yurim-front.webp",
+    "back": "assets/characters/lee-yurim-back.webp"
+  }
+]
